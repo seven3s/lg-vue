@@ -1,8 +1,8 @@
 /**
- * @file 获取可用端口
- * @author 刘彪(liubiao@itoxs.com)
- * @version V0.01
- * @date 2016-04-22
+ * @file:          获取端口，占用++
+ * @author:    花夏(liubiao@itoxs.com)
+ * @version:   V0.0.1
+ * @date:        2017-03-21 17:08:56
  */
 var exports = {
 
@@ -21,7 +21,7 @@ var exports = {
      * getPort 获取一个可用端口
      *
      */
-    getPort: function (port) {
+    getPort: function (port, callback) {
 
         var me = this;
         // 转换为Number
@@ -30,10 +30,10 @@ var exports = {
         port = Number.isNaN(port) ? this.defaultPort : port;
         me.checkPortIsDo(port, function (isDo) {
             if (isDo) {
-                return port;
+                callback && callback(port);
             }else {
                 port++;
-                me.getPort(port);
+                me.getPort(port, callback);
             }
         });
     },
@@ -42,7 +42,7 @@ var exports = {
      * checkPortIsDo 检查端口是否可用
      *
      */
-    checkPortIsDo: function (port) {
+    checkPortIsDo: function (port, callback) {
         var net = require('net');
         // 创建服务并监听窗口
         var server = net.createServer().listen(port);
@@ -51,7 +51,7 @@ var exports = {
             // 关闭服务
             server.close();
             console.log('端口{' + port + '} 可用');
-            return true;
+            callback && callback(true);
         });
         server.on('error', function (err) {
             if (err.code === 'EADDRINUSE') {
@@ -62,4 +62,5 @@ var exports = {
         });
     }
 };
+
 module.exports = exports;

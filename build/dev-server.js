@@ -1,5 +1,6 @@
 require('./check-versions')()
 var IP = require('./lib/getIp');
+var getport = require('./lib/getPort');
 var config = require('../config')
 if (!process.env.NODE_ENV) {
     process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
@@ -71,18 +72,21 @@ devMiddleware.waitUntilValid(function() {
     console.log('> Listening at ' + uri + '\n')
 });
 
-module.exports = app.listen(port, function(err) {
-    if (err) {
-        console.log(err);
-        return;
-    }
+// 2017-03-21 17:22:45 动态监测端口，不可用自动++
+module.exports = getport.getPort(port, function(port) {
+    app.listen(port, function(err) {
+        if (err) {
+            console.log(err);
+            return;
+        }
 
-    // when env is testing, don't need open it
-    if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-        var ip = IP.getIp();
-        // 如果未联网则使用本机回环地址：127.0.0.1
-        ip = ip || 'localhost';
-        uri = 'http://' + ip + ':' + port;
-        opn(uri);
-    }
+        // when env is testing, don't need open it
+        if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
+            var ip = IP.getIp();
+            // 如果未联网则使用本机回环地址：127.0.0.1
+            ip = ip || 'localhost';
+            uri = 'http://' + ip + ':' + port;
+            opn(uri);
+        }
+    });
 });
