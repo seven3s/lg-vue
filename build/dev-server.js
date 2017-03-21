@@ -85,4 +85,4 @@ module.exports = app.listen(port, function(err) {
         uri = 'http://' + ip + ':' + port;
         opn(uri);
     }
-})
+});
