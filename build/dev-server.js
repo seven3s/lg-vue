@@ -74,7 +74,7 @@ devMiddleware.waitUntilValid(function() {
 module.exports = app.listen(port, function(err) {
     if (err) {
         console.log(err)
-        return
+        return;
     }
 
     // when env is testing, don't need open it
