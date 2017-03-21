@@ -83,6 +83,6 @@ module.exports = app.listen(port, function(err) {
         // 如果未联网则使用本机回环地址：127.0.0.1
         ip = ip || 'localhost';
         uri = 'http://' + ip + ':' + port;
-        opn(uri)
+        opn(uri);
     }
 })
