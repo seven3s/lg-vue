@@ -8,7 +8,7 @@
 import demo from '../demo/';
 export default [
     {
-        path: '/demo',
+        path: '/',
         name: 'demo',
         component: demo
     }

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./app/assets/logo.png">
+    <img src="./assets/logo.png">
     <router-view></router-view>
   </div>
 </template>
@@ -11,4 +11,4 @@ export default {
     name: 'app'
 };
 </script>
-<style src="./common/style/common.scss"></style>
+<style src="./assets/style/common.scss"></style>
