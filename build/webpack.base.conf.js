@@ -23,6 +23,9 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'assets': path.resolve(__dirname, '../src/app/assets'),
+      'components': path.resolve(__dirname, '../src/app/components'),
+      'static': path.resolve(__dirname, '../static')
     }
   },
   module: {
@@ -63,5 +66,12 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+      new webpack.ProvidePlugin({
+          $: "jquery",
+          jQuery: "jquery",
+          "window.jQuery": "jquery"
+      })
+  ]
 }
