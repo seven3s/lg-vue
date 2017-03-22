@@ -4,11 +4,11 @@
  * @version:   V0.0.1
  * @date:        2017-03-21 19:34:17
  */
-import Hello from '../app/components/Hello'
+import Hello from '../app/components/Hello';
 export default [
     {
         path: '/',
         name: 'Hello',
         component: Hello
     }
-]
+];
