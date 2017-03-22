@@ -1,8 +1,8 @@
 {
   "name": "lg-vue",
   "version": "1.0.0",
-  "description": "vue項目腳手架",
-  "author": "花夏 <liubiao@itoxs>",
+  "description": "vue項目(朱雀)腳手架",
+  "author": "花夏 <liubiao@itoxs.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
