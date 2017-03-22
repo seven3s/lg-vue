@@ -1,6 +1,6 @@
 # lg-vue(朱雀)
 
-> vue項目腳手架
+> vue項目腳手架 (目前只支持IE9以上)
 
 > 命名：前朱雀为陵光,后玄武为执名,左青龙为孟章,右白虎为咸池 第一组开源项目统一用lg(陵光，朱雀)
 
@@ -74,7 +74,7 @@ lg-vue
    │   ├── demo
    │   └── mock
    │       ├──GET // 本地mock get
-   │       ├──POST // 本地mock post
+   │       └──POST // 本地mock post
    ├── router // 路由配置
    ├── util // 一些公共工具
    ├── app.vue // 视图入口
