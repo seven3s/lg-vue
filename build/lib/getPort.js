@@ -4,6 +4,7 @@
  * @version:   V0.0.1
  * @date:        2017-03-21 17:08:56
  */
+let chalk = require('chalk');
 var exports = {
 
     // 默认端口
@@ -50,13 +51,13 @@ var exports = {
             // 执行这块代码说明端口未被占用
             // 关闭服务
             server.close();
-            console.log('端口{' + port + '} 可用');
+            console.log(chalk.green('端口{' + port + '} 可用'));
             callback && callback(true);
         });
         server.on('error', function (err) {
             if (err.code === 'EADDRINUSE') {
                 // 端口已经被使用
-                console.log('端口{' + port + '} 被占用,正在重试...');
+                console.log(chalk.red('端口{' + port + '} 被占用,正在重试...'));
                 callback && callback(false);
             }
         });

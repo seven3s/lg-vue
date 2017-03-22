@@ -2,6 +2,7 @@ require('./check-versions')()
 var IP = require('./lib/getIp');
 var getport = require('./lib/getPort');
 var config = require('../config')
+var mock = require('./lib/mockMiddleware');
 if (!process.env.NODE_ENV) {
     process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
@@ -52,6 +53,9 @@ Object.keys(proxyTable).forEach(function(context) {
     }
     app.use(proxyMiddleware(options.filter || context, options))
 })
+
+// 在proxy之前加载本地mock 1为本地mock 0为远程mock
+app.use(config.dev.mockLocal ? mock.mockLocal : mock.mockRemote);
 
 // handle fallback for HTML5 history API
 app.use(require('connect-history-api-fallback')())

@@ -16,14 +16,15 @@ export default {
      */
     doRequest: function (params) {
         var deferred = new $.Deferred();
-        var protocol = document.location.protocol;
-        if (!(/^\//).test(params.url)) {
-            params.url = protocol + '//' + params.url;
+        var origin = document.location.origin;
+        console.log(params.url);
+        if ((/^\//).test(params.url)) {
+            params.url = origin + params.url;
         } else if ((/^http:/).test(params.url)) {
             params.url = params.url;
         } else {
             // 为url拼接前缀.  /test 可改成自己统一需要加的路径
-            params.url = protocol + '/test' + params.url;
+            params.url = origin + '/test' + params.url;
         }
         // ajax请求
         $.ajax(params).done(function (response) {
@@ -54,6 +55,9 @@ export default {
     request: function (path, params) {
         var requestParams = $.extend(true, {
             cache: false,
+            headers: {
+                'x-requested-with': 'XMLHttpRequest'
+            },
             url: path,
             data: {},
             type: 'GET',

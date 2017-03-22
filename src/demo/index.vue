@@ -3,6 +3,7 @@
         <input placeholder="请输入下试试" v-model="val">
         <p>{{val}}</p> 
         <button @click="testAjax">测试ajax</button>
+        <p v-if="testData && testData.msg">{{testData.msg}}</p>
     </div>
 </template>
 
@@ -12,16 +13,20 @@
     export default {
         data: function () {
             return {
-                val: ''
+                val: '',
+                testData: {}
             };
         },
         mounted: function () {},
         methods: {
             testAjax: function () {
-                let url = '/a/a';
+                var that = this;
+                let url = '/test';
                 restFullLoader.requestGET(url)
                 .then((res) => {
-                    console.log(res);
+                    if (res.status === 0) {
+                        that.testData = res.data;
+                    }
                 });
             }
         }

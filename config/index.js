@@ -27,6 +27,14 @@ module.exports = {
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    root: path.join(__dirname, '../'),
+    mockLocal: 1,
+    headers: {
+        cookie: 'cookie_user_key=xxxx' // 登陆的用户名==
+    },
+    remote: {
+        path: '127.0.0.1:8080'
+    },
     proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
