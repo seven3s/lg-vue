@@ -6,9 +6,9 @@
 </template>
 
 <script>
+import 'normalize.css';
 export default {
     name: 'app'
 };
 </script>
-
 <style src="./common/style/common.scss"></style>
