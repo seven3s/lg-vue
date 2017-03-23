@@ -14,7 +14,7 @@
 
 [✔️] 4.重写jq ajax 详见`src/common/README.md`;
 
-[✔️] 5.本地mock数据以及远程代理并解决代理失败问题;
+[✔️] 5.本地mock数据以及远程代理并解决代理失败问题(远程代理可能会有问题后期具体解决);
 
 [✘] 6.sass皮肤暂时未做后期加入;
 
@@ -89,3 +89,10 @@ lg-vue
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## 感谢这些开源项目
+
+1. [vue](https://cn.vuejs.org/)
+2. [sass](http://sass-lang.com/)
+3. [http-proxy](https://github.com/nodejitsu/node-http-proxy)
+4. [webpack](https://webpack.github.io/)
