@@ -14,7 +14,7 @@
 
 [✔️] 4.重写jq ajax 详见`src/common/README.md`;
 
-[✘] 5.本地mock数据以及远程代理并解决代理失败问题;
+[✔️] 5.本地mock数据以及远程代理并解决代理失败问题;
 
 [✘] 6.sass皮肤暂时未做后期加入;
 
@@ -25,6 +25,8 @@
 `html` `css` 部分后面补上;
 
 ## Build Setup
+
+建议使用[cnpm](https://npm.taobao.org/)
 
 ``` bash
 # install dependencies
