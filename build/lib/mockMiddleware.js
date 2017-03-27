@@ -19,8 +19,7 @@ module.exports = {
     mockLocal: function(req, res, next) {
         let base   = config.dev.root;
         var XML = req.headers['x-requested-with'];
-        if (XML && XML !== 'XMLHttpRequest'
-            || /\.html$/g.test(req.url)) {
+        if (XML && XML === 'XMLHttpRequest') {
             var url = req.url;
             if (/\?_=/.test(url)) {
                 url = url.split('?_=')[0];
